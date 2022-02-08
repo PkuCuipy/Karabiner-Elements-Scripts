@@ -1,0 +1,47 @@
+{
+  "title": "｢Cmd+Tab => Alt+Tab｣ in RDP Client",
+  "rules": [
+    {
+      "description": "Cmd+Tab => Alt+Tab",    // 将 Command + Tab 映射为 Alt + Tab, 用于 ｢切换到下一个程序窗口｣
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {"mandatory": ["command"]}
+          },
+          "to": [{
+            "key_code": "tab",
+            "modifiers": ["option"]
+          }],
+          "conditions": [{
+              "type": "frontmost_application_if",
+              "description": "",
+              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   // ".*": currently beta, reserved for future version
+          }]
+        }
+      ]
+    },
+    {
+      "description": "Cmd+` => Alt+Shift+Tab",    // 将 Command + ` 映射为 Alt + Shift + Tab, 用于 ｢切换到上一个程序窗口｣
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {"mandatory": ["command"]}
+          },
+          "to": [{
+            "key_code": "tab",
+            "modifiers": ["option", "shift"]
+          }],
+          "conditions": [{
+              "type": "frontmost_application_if",
+              "description": "",
+              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   // ".*": currently beta, reserved for future version
+          }]
+        }
+      ]
+    }
+  ]
+}
