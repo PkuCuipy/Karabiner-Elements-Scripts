@@ -44,22 +44,23 @@
       ]
     },
     {
-      "description": "Cmd+Space => RWin",    // 将 Command + Space 映射为 Right Win 键, 执行 Win 键的默认行为
+      "description": "Cmd+Space => F4",    // Command + Space 映射为 F4 键, Win 端使用 AHK 将 F4 映射为 RWin, 实现搜索功能. 直接映射到 RWin 会有问题 (2022-02-10注)
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "spacebar",
-            "modifiers": {"mandatory": ["command"]}
+            "modifiers": {"mandatory": ["left_command"]}
           },
           "to": [{
-            "key_code": "right_command",
+            "key_code": "f4",
             "modifiers": []
           }],
           "conditions": [{
               "type": "frontmost_application_if",
               "description": "",
               "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   // ".*": currently beta, reserved for future version
+              // "bundle_identifiers": [".*"] // DEBUG
           }]
         }
       ]
