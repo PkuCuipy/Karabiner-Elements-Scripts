@@ -42,6 +42,27 @@
           }]
         }
       ]
+    },
+    {
+      "description": "Cmd+Space => RWin",    // 将 Command + Space 映射为 Right Win 键, 执行 Win 键的默认行为
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {"mandatory": ["command"]}
+          },
+          "to": [{
+            "key_code": "right_command",
+            "modifiers": []
+          }],
+          "conditions": [{
+              "type": "frontmost_application_if",
+              "description": "",
+              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   // ".*": currently beta, reserved for future version
+          }]
+        }
+      ]
     }
   ]
 }
