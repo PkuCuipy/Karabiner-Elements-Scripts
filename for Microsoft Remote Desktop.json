@@ -2,7 +2,8 @@
   "title": "｢Cmd+Tab => Alt+Tab｣ in RDP Client",
   "rules": [
     {
-      "description": "Cmd+Tab => Alt+Tab",    // 将 Command + Tab 映射为 Alt + Tab, 用于 ｢切换到下一个程序窗口｣
+      "description": "Cmd+Tab => Alt+Tab",    
+      // 将 Command + Tab 映射为 Alt + Tab, 用于 ｢切换到下一个程序窗口｣
       "manipulators": [
         {
           "type": "basic",
@@ -17,13 +18,15 @@
           "conditions": [{
               "type": "frontmost_application_if",
               "description": "",
-              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   // ".*": currently beta, reserved for future version
+              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   
+              // ".*": currently only "beta", but reserved for future version
           }]
         }
       ]
     },
     {
-      "description": "Cmd+` => Alt+Shift+Tab",    // 将 Command + ` 映射为 Alt + Shift + Tab, 用于 ｢切换到上一个程序窗口｣
+      "description": "Cmd+` => Alt+Shift+Tab",    
+      // 将 Command + ` 映射为 Alt + Shift + Tab, 用于 ｢切换到上一个程序窗口｣
       "manipulators": [
         {
           "type": "basic",
@@ -38,13 +41,16 @@
           "conditions": [{
               "type": "frontmost_application_if",
               "description": "",
-              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   // ".*": currently beta, reserved for future version
+              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   
+              // ".*": currently only "beta", but reserved for future version
           }]
         }
       ]
     },
     {
-      "description": "Cmd+Space => F4",    // Command + Space 映射为 F4 键, Win 端使用 AHK 将 F4 映射为 RWin, 实现搜索功能. 直接映射到 RWin 会有问题 (2022-02-10注)
+      "description": "Cmd+Space => F4",    
+      // Command + Space 映射为 F4 键, Win 端使用 AHK 将 F4 映射为 RWin 来实现搜索功能. 
+      // 直接映射到 RWin 会有问题 (2022-02-10注)
       "manipulators": [
         {
           "type": "basic",
@@ -59,7 +65,36 @@
           "conditions": [{
               "type": "frontmost_application_if",
               "description": "",
-              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   // ".*": currently beta, reserved for future version
+              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   
+              // ".*": currently only "beta", but reserved for future version
+              // "bundle_identifiers": [".*"] // DEBUG
+          }]
+        }
+      ]
+    },
+    {
+      "description": "Cmd+Q => Alt+Q",    
+      // Command + Q 映射为 Alt + Q, Win 端使用 AHK 将其用于: 
+      //  1. 关闭程序
+      //  2. 在程序切换页面退出程序
+      // Q: 为什么不直接用 AHK 重载 Win+Q, 而是要这么绕一下呢? 
+      // A: 我也不知道, 那样第二条功能不 work. 经过尝试这样绕一下就可了, 我也不知道具体原因.
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {"mandatory": ["left_command"]}
+          },
+          "to": [{
+            "key_code": "q",
+            "modifiers": ["left_option"]
+          }],
+          "conditions": [{
+              "type": "frontmost_application_if",
+              "description": "",
+              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   
+              // ".*": currently only "beta", but reserved for future version
               // "bundle_identifiers": [".*"] // DEBUG
           }]
         }
