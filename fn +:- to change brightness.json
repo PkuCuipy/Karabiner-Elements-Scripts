@@ -1,0 +1,88 @@
+// 2022-05-08
+//
+// 备注: 
+// 我把 Mac 的功能键设置为默认执行 F1~F12 (即按下 fn 才执行亮度、音量等的调整).
+// 但 fn + F1/F2 实在太难按了, 却又是常用的操作. 这里定义快捷键 fn + `+`/`-` 来控制屏幕亮度.
+//
+// Notes:  
+// Since I choose to use F1~F12 as standard function keys for my Mac, 
+// I have to press F1~F12 with `fn` key holding to change brightness, change volume, etc.
+// However, fn + F1/F2 is so hard to press, yet commonly used. 
+// So the JSON below sets fn + `+`/`-` as an alternative way to manipulate brightness of screen.
+{
+  "title": "｢Cmd+Tab => Alt+Tab｣ in RDP Client",
+  "rules": [
+    {
+      "description": "fn + `+` => brightness up",    
+      // 将 fn + `+` 用于 ｢提高屏幕亮度｣
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {"mandatory": ["fn"]}
+          },
+          "to": [{
+            "consumer_key_code": "display_brightness_increment"
+          }],
+          "conditions": []
+        }
+      ]
+    },
+
+    {
+      "description": "fn + `-` => brightness down",    
+      // 将 fn + `-` 用于 ｢降低屏幕亮度｣
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {"mandatory": ["fn"]}
+          },
+          "to": [{
+            "consumer_key_code": "display_brightness_decrement"
+          }],
+          "conditions": []
+        }
+      ]
+    },
+
+    {
+      "description": "fn + shift + `-` => keyboard brightness down",    
+      // 将 fn + shift + `+` 用于 ｢提高键盘背光亮度｣
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "equal_sign",
+            "modifiers": {"mandatory": ["fn", "left_shift"]}
+          },
+          "to": [{
+            "key_code": "illumination_increment"
+          }],
+          "conditions": []
+        }
+      ]
+    },
+
+    {
+      "description": "fn + shift + `-` => keyboard brightness down",    
+      // 将 fn + shift + `-` 用于 ｢降低键盘背光亮度｣
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {"mandatory": ["fn", "left_shift"]}
+          },
+          "to": [{
+            "key_code": "illumination_decrement"
+          }],
+          "conditions": []
+        }
+      ]
+    }
+
+  ]
+}
