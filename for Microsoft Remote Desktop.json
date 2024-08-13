@@ -18,8 +18,7 @@
           "conditions": [{
               "type": "frontmost_application_if",
               "description": "",
-              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   
-              // ".*": currently only "beta", but reserved for future version
+              "bundle_identifiers": ["com\\.microsoft\\.rdc.*"]   // com.microsoft.rdc.macos
           }]
         }
       ]
@@ -41,8 +40,7 @@
           "conditions": [{
               "type": "frontmost_application_if",
               "description": "",
-              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   
-              // ".*": currently only "beta", but reserved for future version
+              "bundle_identifiers": ["com\\.microsoft\\.rdc.*"]   // com.microsoft.rdc.macos
           }]
         }
       ]
@@ -65,9 +63,7 @@
           "conditions": [{
               "type": "frontmost_application_if",
               "description": "",
-              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   
-              // ".*": currently only "beta", but reserved for future version
-              // "bundle_identifiers": [".*"] // DEBUG
+              "bundle_identifiers": ["com\\.microsoft\\.rdc.*"]   // com.microsoft.rdc.macos
           }]
         }
       ]
@@ -93,9 +89,7 @@
           "conditions": [{
               "type": "frontmost_application_if",
               "description": "",
-              "bundle_identifiers": ["com\\.microsoft\\.rdc\\.osx.*"]   
-              // ".*": currently only "beta", but reserved for future version
-              // "bundle_identifiers": [".*"] // DEBUG
+              "bundle_identifiers": ["com\\.microsoft\\.rdc.*"]   // com.microsoft.rdc.macos
           }]
         }
       ]
